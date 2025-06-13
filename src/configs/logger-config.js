@@ -15,26 +15,7 @@ const logger = createLogger({
   level: "info",
   format: customFormat,
   transports: [
-    new transports.Console(), // colorized output in console
-    new transports.File({
-      filename: "logs/error.log",
-      level: "error",
-      format: combine(
-        timestamp(),
-        printf(({ timestamp, level, message }) => {
-          return `[${timestamp}] ${level}: ${message}`;
-        })
-      ),
-    }),
-    new transports.File({
-      filename: "logs/combined.log",
-      format: combine(
-        timestamp(),
-        printf(({ timestamp, level, message }) => {
-          return `[${timestamp}] ${level}: ${message}`;
-        })
-      ),
-    }),
+    new transports.Console(), // Only log to console
   ],
 });
 
